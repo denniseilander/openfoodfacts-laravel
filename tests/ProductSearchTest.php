@@ -11,11 +11,13 @@ class ProductSearchTest extends Base\FacadeTestCase
     {
         $results = OpenFoodFacts::find('Stir-Fry Rice Noodles');
 
+        /** @phpstan-ignore-next-line - will always evaluate to true due docblock */
         $this->assertInstanceOf(\Illuminate\Support\Collection::class, $results);
 
         $this->assertTrue($results->isNotEmpty());
 
         $results->each(function ($arr) {
+            /** @phpstan-ignore-next-line - will always evaluate to true due docblock */
             $this->assertIsArray($arr);
         });
     }
